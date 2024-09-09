@@ -1,0 +1,20 @@
+#btns button:nth-of-type(1)  {  background-image: linear-gradient(to right , #7028e4 , #843fdf , #9958da , #a566d9 , #be84d3 , #cd96cf , #e4b1ca) }
+
+.bgBlur {
+    display: none;
+    position: fixed;
+    inset: 0;
+    place-items: center;
+    background: #00000038;
+}
+
+.popup {
+    border-radius: 20px;
+    max-width: 600px;
+    height: 500px;
+    background: white;
+}
+
+.popup::-webkit-scrollbar {
+    display: none;
+}

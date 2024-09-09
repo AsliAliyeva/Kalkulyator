@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sayt Kalkulyatoru</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+        tailwind.config = {
+            theme: {
+                screens: {
+                'tablet': '640px',
+                // => @media (min-width: 640px) { ... }
+
+                'laptop': '1024px',
+                // => @media (min-width: 1024px) { ... }
+
+                'desktop': '1280px',
+                // => @media (min-width: 1280px) { ... }
+                },
+            }
+        }
+        </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+        <header class="fixed top-0 w-full pb-5 bg-[white] z-[10]">
+           <div id="mainDiv" class="flex  justify-between items-center px-7 pt-7">
+                <a href="#"><img class="w-[100px]" src="https://sayt.az/icons/saytaz.svg" alt="logo" /></a>
+                <div id="menu" class=" hidden laptop:relative laptop:flex laptop:w-[50%] laptop:justify-between ">
+                    <p onclick="vebSaytAch()" class=" text-[16px] font-semibold">
+                        <a href="#" class="hover:text-[#7d3be2]">Veb sayt<i class="fa-solid fa-chevron-down pl-2 text-[12px] "></i></a>
+                            <div id="vebDD"  class=" hidden absolute bg-[white] h-[500px] overflow-x-auto border rounded p-6 top-[50px] left-[-10%]">
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/lJ9i3mHSrGbIyOFk6VnqpcyzeZgiKmjyiUfdEhAc.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Hökumət və qeyri-kommersiya saytları</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Hökumət və qeyri-kommersiya saytları</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/fcdQoEskESpjwrkLUcNKqvm0ZFwzn7kAspkBfwI5.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Bloq</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Ən son xəbərlər və faydalı məlumatlar</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/vQyageZW9Eb4rKazAWwrY3xUTem15TN9Ofdk8oUk.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">E-ticarət saytları</p>
+                                        <p class="text-[13px] font-bold text-[#999]">E-ticarət saytları</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/otN2FW4K7vPTfJRqYOqYJMRj1VZDil02yYCmA0mx.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Hüquq firma saytı</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Hüquq firma saytı</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/zJjPDvohOxpgJj7wenVSBaGbTgNOuigFvjxLmhw5.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Bloqlar və Şəxsi Vebsayt</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Bloqlar və Şəxsi Vebsayt</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/RG2ZavDFVNsih7XSr36x2pxKPQxXekuAgO2VXif6.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Daşınmaz əmlak veb saytı</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Daşınmaz əmlak veb saytı</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/khwNG7uXgAPtW9wilTtK12LaUADpZgeQb3UvOqvB.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Tibb-Doktor Saytlar</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Tibb-Doktor Saytlar</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/qKRz4fKbiAGalPgCtcAGVuV5AnCAhx8WkRAMdV3L.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">WordPress Saytları</p>
+                                        <p class="text-[13px] font-bold text-[#999]">WordPress Saytları</p>
+                                    </a>
+                                </div>
+                            </div>
+                    </p>
+                    <p onclick="domenAch()"  class=" text-[16px] font-semibold">
+                        <a href="#" class="hover:text-[#7d3be2]">Domen<i class="fa-solid fa-chevron-down pl-2 text-[12px]"></i></a>
+                            <div id="domenDD"  class="hidden absolute bg-[white] border rounded p-6 top-[50px] left-[5%]">
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://sayt.az/icons/network-browser.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Domen</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Etibarlı xidmət</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://sayt.az/icons/network-www.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Pulsuz Domen Qeydiyyatı</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Sürətli qeydiyyat</p>
+                                    </a>
+                                </div>
+                            </div>
+                    </p>
+                    <p onclick="hostinqAch()"  class=" text-[16px] font-semibold">
+                        <a href="#" class="hover:text-[#7d3be2]">Hostinq<i class="fa-solid fa-chevron-down pl-2 text-[12px]"></i></a>
+                            <div id="hostinqDD" class="hidden absolute bg-[white] border rounded p-6 top-[50px] left-[22%]">
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://sayt.az/icons/hosting-icon.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Veb Hostinq</p>
+                                        <p class="text-[13px] font-bold text-[#999]"><i class="fa-solid fa-manat-sign text-[14px] mr-1"></i>10.00/ay-dan başlayaraq</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://sayt.az/icons/vps-icon.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">VPS</p>
+                                        <p class="text-[13px] font-bold text-[#999]"><i class="fa-solid fa-manat-sign text-[14px] mr-1"></i>15.00/ay-dan başlayaraq</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://sayt.az/icons/server-icon.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Server</p>
+                                        <p class="text-[13px] font-bold text-[#999]"><i class="fa-solid fa-manat-sign text-[14px] mr-1"></i>99.00/ay-dan başlayaraq</p>
+                                    </a>
+                                </div>
+                            </div>
+                    </p>
+                    <p onclick="xidmetlerAch()"  class=" text-[16px] font-semibold">
+                        <a href="#" class="hover:text-[#7d3be2]">Xidmətlər<i class="fa-solid fa-chevron-down pl-2 text-[12px]"></i></a>
+                            <div id="xidmetDD"  class="hidden absolute bg-[white]  border rounded p-6 top-[50px] left-[40%]">
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/lJ9i3mHSrGbIyOFk6VnqpcyzeZgiKmjyiUfdEhAc.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Sifarişi izlə</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Sifarişlərinizi izləyin</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/fcdQoEskESpjwrkLUcNKqvm0ZFwzn7kAspkBfwI5.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Sayt Kalkulyatoru</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Saytın Qiymətini Öyrən</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/vQyageZW9Eb4rKazAWwrY3xUTem15TN9Ofdk8oUk.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">SEO Xidməti</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Axtarış Sistemi Optimizasiyası</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/otN2FW4K7vPTfJRqYOqYJMRj1VZDil02yYCmA0mx.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Mobil Tətbiqlərin Hazırlanması</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Mobil tətbiq xidməti</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/zJjPDvohOxpgJj7wenVSBaGbTgNOuigFvjxLmhw5.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Sosial Media Marketinq</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Sosial Media Marketinq</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/qKRz4fKbiAGalPgCtcAGVuV5AnCAhx8WkRAMdV3L.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Texniki Xidmət</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Texniki Xidmət</p>
+                                    </a>
+                                </div>
+                            </div>
+                    </p>
+                    <p onclick="servisAch()" class=" text-[16px] font-semibold">
+                        <a href="#" class="hover:text-[#7d3be2]">Şirkət<i class="fa-solid fa-chevron-down pl-2 text-[12px]"></i></a>
+                            <div id="sirketDD" class="hidden absolute bg-[white] h-[500px] z-40 overflow-x-auto border rounded p-6 top-[50px] left-[50%]">
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/lJ9i3mHSrGbIyOFk6VnqpcyzeZgiKmjyiUfdEhAc.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Haqqımızda</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Bizim komanda üzvlərimiz</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/fcdQoEskESpjwrkLUcNKqvm0ZFwzn7kAspkBfwI5.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Bloq</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Ən son xəbərlər və faydalı məlumatlar</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/vQyageZW9Eb4rKazAWwrY3xUTem15TN9Ofdk8oUk.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Bütün StartUplar</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Startupları idarə edən komandamıza qoşulun</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/otN2FW4K7vPTfJRqYOqYJMRj1VZDil02yYCmA0mx.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Portfolio</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Hazırladığımız hər bir iş bizim üçün dəyərlidir</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/zJjPDvohOxpgJj7wenVSBaGbTgNOuigFvjxLmhw5.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Karyera</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Hazırki vakansiyalarımız</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/RG2ZavDFVNsih7XSr36x2pxKPQxXekuAgO2VXif6.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Freelance</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Siz də qeydiyyatdan keçməklə freelance işləyə bilərsiz</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/khwNG7uXgAPtW9wilTtK12LaUADpZgeQb3UvOqvB.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Əlaqə Forması</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Əlaqə Saxlayın</p>
+                                    </a>
+                                </div>
+                            </div>
+                    </p>
+                </div>
+                <div class="flex ">
+                    <div id="icons" class="flex items-center pr-3 relative ">
+                        <a  onclick="manatAch()" href="#" >
+                            <i class="fa-solid fa-manat-sign text-[17px]"></i><i class="fa-solid fa-chevron-down pl-2  text-[#ccc]"></i>
+                            <ul id="manat" class=" hidden absolute top-[40px] border rounded p-2 z-40">
+                                <li><i class="fa-solid fa-manat-sign"></i></li>
+                                <li>$</li>
+                            </ul>
+                        </a>
+                        <a onclick="bayragAch()" href="#" class=" flex items-center pl-4 ">
+                            <img class="w-[20px]" src="https://sayt.az/images/az.png" alt="flag" />
+                            <i class="fa-solid fa-chevron-down pl-2 text-[#ccc]"></i>
+                            <div id="bayragDD" class="hidden absolute top-[40px] left-[50px] border rounded   p-2 z-40">
+                                <div><img class="w-[20px]" src="https://sayt.az/images/usa.png" /></div>
+                                <div><img class="w-[20px]" src="https://sayt.az/images/az.png" /></div>
+                            </div> 
+                        </a>
+                        <a href="#" onclick="barsAch()" class="fa-solid fa-bars block desktop:hidden pl-4 text-[#374151] text-[20px]"></a>
+                    </div>
+                    <div id="btns" class="hidden desktop:block flex ">
+                        <button class=" text-[#fff] py-2 px-4 font-semibold rounded">Qiymət təklifi al</button>
+                        <button class="rounded text-[#a271f2] border border-[#a271f2] py-2 px-4 font-semibold ml-3">Daxil olun</button>
+                    </div>
+                </div>
+           </div>
+        </header>
+        <main class="mt-[15vh]">
+            <div class="w-[80%] bg-[#f5f5f5] pt-[30px] mx-auto mb-10 laptop:flex  ">
+                <div class=" laptop:w-[65%]  bg-[white] mx-3 mb-10 px-3">
+                    <h1 class="text-[40px] font-bold py-3 ">Qiymət Təklifi Al</h1>
+                    <h5 class="font-semibold py-2 text-[18px] ">Statik səhifələr</h5>
+                    <div class="rounded   overflow-hidden  pb-6">
+                        <div class="bg-[#f5f5f5]  rounded overflow-hidden ">
+                            <h5 class="px-4 py-6">Neçə statik səhifə olacaq?</h5>
+                            <div class="flex justify-between items-center py-5 px-4 ">
+                                <p class="  text-[white] bg-[#a271f2] rounded px-3 py-1">1</p>
+                                <input id="statikInp" oninput="getStatikInp()" min="1" max="20" value="4" class="bg-[gray] w-[85%]" type="range" />
+                                <p class="  text-[white] bg-[#a271f2] rounded px-3 py-1">20</p>
+                            </div>
+                            <div class="flex justify-between items-center px-4 py-6">
+                                <div class="w-[20%]">Dizayn mürəkkəblik:</div>
+                                <div class="w-[70%]">
+                                    <div class=" flex justify-between pb-3">
+                                        <p>Sadə</p>
+                                        <p>Orta</p>
+                                        <p>Mürəkkəb</p>
+                                    </div>
+                                    <div><input id="dizaynInp" oninput="getStatikInp()"  min="1" max="3" value="1" class="w-[100%]" type="range" /></div>
+                                </div>
+                            </div>
+                            <div class="bg-[#dee7f1] px-4 py-6 flex justify-between">
+                                <p>Xərc:</p>
+                                <div class="flex items-center">
+                                    <p class="text-[#a271f2] text-[25px]"><span class="text-[#a271f2]" id="statikSehife">4</span> səhifə /</p>
+                                    <p class="text-[#a271f2] text-[25px]"><i class="fa-solid fa-manat-sign text-[20px] pr-1"></i><span id="statikQiymet">400</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h5 class="font-semibold py-2  bg-[white] text-[18px] ">Veb sayt əlavələri</h5>
+                    <div class="  bg-[white]">
+                        <div class=" rounded overflow-hidden ">
+                            <div class="flex justify-between bg-[#f8f8fa] px-3 py-4 ">
+                                <div class="w-[45%]">
+                                    <div class="flex justify-between items-center py-2">
+                                        <p>Bloq</p>
+                                        <label onchange="elavelerFunk()" for="toggle1" class="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-800">
+                                            <span class="relative">
+                                                <input id="toggle1" value="200" type="checkbox" class="hidden peer">
+                                                <div class="w-10 h-6 rounded-full shadow-inner dark:bg-[#e5e7eb] peer-checked:dark:bg-violet-600"></div>
+                                                <div class="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-100"></div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2">
+                                        <p>Responsive</p>
+                                        <label onchange="elavelerFunk()" for="toggle2" class="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-800">
+                                            <span class="relative">
+                                                <input id="toggle2" value="100" type="checkbox" class="hidden peer">
+                                                <div class="w-10 h-6 rounded-full shadow-inner dark:bg-[#e5e7eb] peer-checked:dark:bg-violet-600"></div>
+                                                <div class="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-100"></div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2">
+                                        <p>Mesajlaşma</p>
+                                        <label onchange="elavelerFunk()" for="toggle3" class="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-800">
+                                            <span class="relative">
+                                                <input id="toggle3" value="50" type="checkbox" class="hidden peer">
+                                                <div class="w-10 h-6 rounded-full shadow-inner dark:bg-[#e5e7eb] peer-checked:dark:bg-violet-600"></div>
+                                                <div class="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-100"></div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2">
+                                        <p>Qalereya</p>
+                                        <label onchange="elavelerFunk()" for="toggle4" class="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-800">
+                                            <span class="relative">
+                                                <input id="toggle4" value="100" type="checkbox" class="hidden peer">
+                                                <div class="w-10 h-6 rounded-full shadow-inner dark:bg-[#e5e7eb] peer-checked:dark:bg-violet-600"></div>
+                                                <div class="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-100"></div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2">
+                                        <p>Saytda Axtarış</p>
+                                        <label onchange="elavelerFunk()" for="toggle5" class="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-800">
+                                            <span class="relative">
+                                                <input id="toggle5" value="100" type="checkbox" class="hidden peer">
+                                                <div class="w-10 h-6 rounded-full shadow-inner dark:bg-[#e5e7eb] peer-checked:dark:bg-violet-600"></div>
+                                                <div class="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-100"></div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2">
+                                        <p>Rezervasyon</p>
+                                        <label onchange="elavelerFunk()" for="toggle6" class="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-800">
+                                            <span class="relative">
+                                                <input id="toggle6" value="400" type="checkbox" class="hidden peer">
+                                                <div class="w-10 h-6 rounded-full shadow-inner dark:bg-[#e5e7eb] peer-checked:dark:bg-violet-600"></div>
+                                                <div class="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-100"></div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2">
+                                        <p>Analitika/İzləmə</p>
+                                        <label onchange="elavelerFunk()" for="toggle7" class="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-800">
+                                            <span class="relative">
+                                                <input id="toggle7" value="50" type="checkbox" class="hidden peer">
+                                                <div class="w-10 h-6 rounded-full shadow-inner dark:bg-[#e5e7eb] peer-checked:dark:bg-violet-600"></div>
+                                                <div class="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-100"></div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="w-[45%]">
+                                    <div class="flex justify-between items-center py-2">
+                                        <p>Üzv girişi/Profillər</p>
+                                        <label onchange="elavelerFunk()" for="toggle8" class="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-800">
+                                            <span class="relative">
+                                                <input id="toggle8" value="400" type="checkbox" class="hidden peer">
+                                                <div class="w-10 h-6 rounded-full shadow-inner dark:bg-[#e5e7eb] peer-checked:dark:bg-violet-600"></div>
+                                                <div class="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-100"></div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2">
+                                        <p>Forum</p>
+                                        <label onchange="elavelerFunk()" for="toggle9" class="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-800">
+                                            <span class="relative">
+                                                <input id="toggle9" value="400" type="checkbox" class="hidden peer">
+                                                <div class="w-10 h-6 rounded-full shadow-inner dark:bg-[#e5e7eb] peer-checked:dark:bg-violet-600"></div>
+                                                <div class="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-100"></div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2">
+                                        <p>Canlı Söhbət</p>
+                                        <label onchange="elavelerFunk()" for="toggle10" class="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-800">
+                                            <span class="relative">
+                                                <input id="toggle10" value="50" type="checkbox" class="hidden peer">
+                                                <div class="w-10 h-6 rounded-full shadow-inner dark:bg-[#e5e7eb] peer-checked:dark:bg-violet-600"></div>
+                                                <div class="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-100"></div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2">
+                                        <p>Əlaqə Forması</p>
+                                        <label  onchange="elavelerFunk()" for="toggle11" class="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-800">
+                                            <span class="relative">
+                                                <input id="toggle11" value="100" type="checkbox" class="hidden peer">
+                                                <div class="w-10 h-6 rounded-full shadow-inner dark:bg-[#e5e7eb] peer-checked:dark:bg-violet-600"></div>
+                                                <div class="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-100"></div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2">
+                                        <p>Xəritə Məlumatı/Geolocation</p>
+                                        <label onchange="elavelerFunk()" for="toggle12" class="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-800">
+                                            <span class="relative">
+                                                <input id="toggle12" value="100" type="checkbox" class="hidden peer">
+                                                <div class="w-10 h-6 rounded-full shadow-inner dark:bg-[#e5e7eb] peer-checked:dark:bg-violet-600"></div>
+                                                <div class="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-100"></div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2">
+                                        <p>Sosial Media inteqrasiyası</p>
+                                        <label onchange="elavelerFunk()" for="toggle13" class="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-800">
+                                            <span class="relative">
+                                                <input id="toggle13" value="50" type="checkbox" class="hidden peer">
+                                                <div class="w-10 h-6 rounded-full shadow-inner dark:bg-[#e5e7eb] peer-checked:dark:bg-violet-600"></div>
+                                                <div class="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-100"></div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2">
+                                        <p>Admin Panel</p>
+                                        <label onchange="elavelerFunk()" for="toggle14" class="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-800">
+                                            <span class="relative">
+                                                <input id="toggle14" value="300" type="checkbox" class="hidden peer">
+                                                <div class="w-10 h-6 rounded-full shadow-inner dark:bg-[#e5e7eb] peer-checked:dark:bg-violet-600"></div>
+                                                <div class="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-100"></div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-[#dee7f1]  px-4 py-6 flex justify-between">
+                                <p>Xərc:</p>
+                                <div class="flex items-center">
+                                    <p class="text-[#a271f2] text-[25px]"><i class="fa-solid fa-manat-sign text-[20px]"></i> <span id="elavelerXerc">0</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h5 class="font-semibold py-2  bg-[white] text-[18px] mt-5">Axtarış motorunun optimallaşdırılması</h5>
+                    <div class="  bg-[white]">
+                        <div class=" rounded overflow-hidden ">
+                            <div class="flex justify-between bg-[#f8f8fa] px-3 py-4 ">
+                                <div class="w-[45%]">
+                                    <div class="flex  items-center py-2">
+                                        <input onchange="axtarisFunk()" value="200" id="axtaris1" type="checkbox" />
+                                        <p class="pl-2">Başlıqlar & Meta</p>
+                                    </div>
+                                    <div class="flex  items-center py-2">
+                                        <input onchange="axtarisFunk()"  id="axtaris2" value="300" type="checkbox" />
+                                        <p class="pl-2">20+ Qabaqcıl Texnika</p>
+                                    </div>
+                                    <div class="flex  items-center py-2">
+                                        <input onchange="axtarisFunk()"  id="axtaris3" value="100" type="checkbox" />
+                                        <p class="pl-2">Sitemap</p>
+                                    </div>
+                                </div>
+                                <div class="w-[45%]">
+                                    <div class="flex  items-center py-2">
+                                        <input onchange="axtarisFunk()"  id="axtaris4" value="300" type="checkbox" />
+                                        <p class="pl-2">Açar Söz</p>
+                                    </div>
+                                    <div class="flex  items-center py-2">
+                                        <input onchange="axtarisFunk()"  id="axtaris5" value="100" type="checkbox" />
+                                        <p class="pl-2">Başlıq Teqləri</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-[#dee7f1]  px-4 py-6 flex justify-between">
+                                <p>Xərc:</p>
+                                <div class="flex items-center">
+                                    <p class="text-[#a271f2] text-[25px]"><i class="fa-solid fa-manat-sign text-[20px]"></i> <span id="axtarisXerc">0</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h5 class="font-semibold py-2 mt-5 bg-[white] text-[18px] ">Elektron ticarət əlavələri</h5>
+                    <div class="  bg-[white]">
+                        <div class=" rounded overflow-hidden ">
+                            <div class="flex justify-between bg-[#f8f8fa] px-3 py-4 ">
+                                <div class="w-[45%]">
+                                    <div class="flex justify-between items-center py-2">
+                                        <p>Ödəniş</p>
+                                        <label onchange="elektronFunk()"   for="elave1" class="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-800">
+                                            <span class="relative">
+                                                <input id="elave1" value="200" type="checkbox" class="hidden peer">
+                                                <div class="w-10 h-6 rounded-full shadow-inner dark:bg-[#e5e7eb] peer-checked:dark:bg-violet-600"></div>
+                                                <div class="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-100"></div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2">
+                                        <p>Məsullar</p>
+                                        <label onchange="elektronFunk()"  for="elave2" class="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-800">
+                                            <span class="relative">
+                                                <input id="elave2" value="300" type="checkbox" class="hidden peer">
+                                                <div class="w-10 h-6 rounded-full shadow-inner dark:bg-[#e5e7eb] peer-checked:dark:bg-violet-600"></div>
+                                                <div class="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-100"></div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2">
+                                        <p>Filtr</p>
+                                        <label onchange="elektronFunk()"   for="elave3" class="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-800">
+                                            <span class="relative">
+                                                <input id="elave3" value="300" type="checkbox" class="hidden peer">
+                                                <div class="w-10 h-6 rounded-full shadow-inner dark:bg-[#e5e7eb] peer-checked:dark:bg-violet-600"></div>
+                                                <div class="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-100"></div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div> 
+                                <div class="w-[45%]">
+                                    <div class="flex justify-between items-center py-2">
+                                        <p>Səbət</p>
+                                        <label  onchange="elektronFunk()"  for="elave4" class="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-800">
+                                            <span class="relative">
+                                                <input id="elave4" value="500" type="checkbox" class="hidden peer">
+                                                <div class="w-10 h-6 rounded-full shadow-inner dark:bg-[#e5e7eb] peer-checked:dark:bg-violet-600"></div>
+                                                <div class="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-100"></div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2">
+                                        <p>Bəyəndiklərim</p>
+                                        <label onchange="elektronFunk()"   for="elave5" class="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-800">
+                                            <span class="relative">
+                                                <input id="elave5" value="300" type="checkbox" class="hidden peer">
+                                                <div class="w-10 h-6 rounded-full shadow-inner dark:bg-[#e5e7eb] peer-checked:dark:bg-violet-600"></div>
+                                                <div class="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-100"></div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2">
+                                        <p>Məhsul haqqında</p>
+                                        <label onchange="elektronFunk()"   for="elave6" class="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-800">
+                                            <span class="relative">
+                                                <input id="elave6" value="200" type="checkbox" class="hidden peer">
+                                                <div class="w-10 h-6 rounded-full shadow-inner dark:bg-[#e5e7eb] peer-checked:dark:bg-violet-600"></div>
+                                                <div class="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-100"></div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-[#dee7f1]  px-4 py-6 flex justify-between">
+                                <p>Xərc:</p>
+                                <div class="flex items-center">
+                                    <p class="text-[#a271f2] text-[25px]"><i class="fa-solid fa-manat-sign text-[20px]"></i> <span id="elektronXerc">0</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h5 class="font-semibold py-2 mt-5 bg-[white] text-[18px] ">Logo dizaynı</h5>
+                    <div class="  bg-[white] mb-10">
+                        <div class=" rounded overflow-hidden ">
+                            <div class="flex justify-between bg-[#f8f8fa] px-3 py-4 ">
+                                <div class="w-full">
+                                    <div class="flex justify-between pb-5">
+                                        <p>Ehtiyac yoxdur</p>
+                                        <p>Sadə</p>
+                                        <p>Xüsusi</p>
+                                    </div>
+                                    <div><input oninput="dizaynFunk()" id="logoInp" min="0" max="2" value="0" class="w-full" type="range" /></div>
+                                </div>
+                            </div>
+                            <div class="bg-[#dee7f1]  px-4 py-6 flex justify-between">
+                                <p>Xərc:</p>
+                                <div class="flex items-center">
+                                    <p class="text-[#a271f2] text-[25px]"><i class="fa-solid fa-manat-sign text-[20px]"></i> <span id="dizaynqiymet">0</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="laptop:w-[35%] mx-auto">
+                    <div class="laptop:sticky laptop:top-0 laptop:right-0">
+                        <div class="bg-[white] py-6 px-8">
+                            <h5>Təklifiniz</h5>
+                            <div class="flex justify-between items-center pt-4">
+                                <p class="text-[#999]">Statik səhifələr:</p>
+                                <p class="text-[#a271f2]"><i class="fa-solid fa-manat-sign text-[15px] text-[#a271f2] pr-2 "></i><span id="statikSehifeler">400</span></p>
+                            </div>
+                            <div class="flex justify-between items-center pt-4">
+                                <p class="text-[#999]">Əlavələr:</p>
+                                <p class="text-[#a271f2]"><i class="fa-solid fa-manat-sign text-[15px] text-[#a271f2] pr-2 "></i><span id="elavelerTeklif">0</span></p>
+                            </div>
+                            <div class="flex justify-between items-center pt-4">
+                                <p class="text-[#999]">SEO:</p>
+                                <p class="text-[#a271f2]"><i class="fa-solid fa-manat-sign text-[15px] text-[#a271f2] pr-2 "></i><span id="seoTeklif">0</span></p>
+                            </div>
+                            <div class="flex justify-between items-center pt-4">
+                                <p class="text-[#999]">E-ticarət:</p>
+                                <p class="text-[#a271f2]"><i class="fa-solid fa-manat-sign text-[15px] text-[#a271f2] pr-2 "></i><span id="elektronTeklif">0</span></p>
+                            </div>
+                            <div class="flex justify-between items-center pt-4">
+                                <p class="text-[#999]">Logo dizaynı:</p>
+                                <p class="text-[#a271f2]"><i class="fa-solid fa-manat-sign text-[15px] text-[#a271f2] pr-2 "></i><span id="logoTeklif">0</span></p>
+                            </div>
+                            <hr class="bg-[#999] my-5"  />
+                            <div class="flex justify-between items-center pt-4">
+                                <p class="text-[#999] font-bold">Qeyd:</p>
+                                <p class="text-[#999]">Minimum sayt qiyməti 450<i class="fa-solid fa-manat-sign pl-1 text-[15px] text-[#a271f2] pr-2 "></i></p>
+                            </div>
+                        </div>
+                        <div class="flex bg-[#a271f2] justify-between items-center py-6 px-8 ">
+                            <p class="text-[white] text-[25px] w-[70%]">Ümumi təxmini dəyəri:</p>
+                            <p class="text-[white] text-[25px] w-[30%]"> <span id="umumiXerc">450</span><i class="fa-solid fa-manat-sign text-[20px] text-[white] pl-2 "></i></p>
+                        </div>
+                        <button onclick="handlePopup()" class="bg-[#2BC48A] text-[white] px-6 py-4 mb-10 w-full mt-7 rounded-[8px] font-bold">Saytınızı İndi Sifariş Edin</button>
+                    </div>
+                </div>
+            </div>
+            <div id="barDD" class="hidden absolute bg-[white] p-2 h-full w-[300px] top-0 right-0 z-30 ">
+                <div class="flex justify-end"><i onclick="barBagla()"  class="fa-solid fa-xmark cursor-pointer text-[20px] mt-2"></i></div>
+                <div id="sonMenu"   class=" pl-10  relative laptop:hidden block w-[50%]  ">
+                    <p onclick="vebSaytAch()" class="  mb-4 mt-10 text-[16px] font-semibold">
+                        <a href="#" class="hover:text-[#7d3be2]">Veb sayt<i class="fa-solid fa-chevron-down pl-2 text-[12px] "></i></a>
+                            <div id="vebBars"   class="w-[250px] hidden z-[999] absolute bg-[white] h-[300px] overflow-x-auto border rounded p-6 ">
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/lJ9i3mHSrGbIyOFk6VnqpcyzeZgiKmjyiUfdEhAc.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Hökumət və qeyri-kommersiya saytları</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Hökumət və qeyri-kommersiya saytları</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/fcdQoEskESpjwrkLUcNKqvm0ZFwzn7kAspkBfwI5.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Bloq</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Ən son xəbərlər və faydalı məlumatlar</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/vQyageZW9Eb4rKazAWwrY3xUTem15TN9Ofdk8oUk.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">E-ticarət saytları</p>
+                                        <p class="text-[13px] font-bold text-[#999]">E-ticarət saytları</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/otN2FW4K7vPTfJRqYOqYJMRj1VZDil02yYCmA0mx.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Hüquq firma saytı</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Hüquq firma saytı</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/zJjPDvohOxpgJj7wenVSBaGbTgNOuigFvjxLmhw5.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Bloqlar və Şəxsi Vebsayt</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Bloqlar və Şəxsi Vebsayt</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/RG2ZavDFVNsih7XSr36x2pxKPQxXekuAgO2VXif6.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Daşınmaz əmlak veb saytı</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Daşınmaz əmlak veb saytı</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/khwNG7uXgAPtW9wilTtK12LaUADpZgeQb3UvOqvB.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Tibb-Doktor Saytlar</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Tibb-Doktor Saytlar</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/qKRz4fKbiAGalPgCtcAGVuV5AnCAhx8WkRAMdV3L.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">WordPress Saytları</p>
+                                        <p class="text-[13px] font-bold text-[#999]">WordPress Saytları</p>
+                                    </a>
+                                </div>
+                            </div>
+                    </p>
+                    <p onclick="domenAch()"  class=" mb-4 text-[16px] font-semibold">
+                        <a href="#" class="hover:text-[#7d3be2]">Domen<i class="fa-solid fa-chevron-down pl-2 text-[12px]"></i></a>
+                            <div id="domenBars"  class="w-[250px]  hidden z-[999] absolute bg-[white] border rounded p-6 ">
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://sayt.az/icons/network-browser.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Domen</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Etibarlı xidmət</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://sayt.az/icons/network-www.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Pulsuz Domen Qeydiyyatı</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Sürətli qeydiyyat</p>
+                                    </a>
+                                </div>
+                            </div>
+                    </p>
+                    <p onclick="hostinqAch()"  class=" mb-4 text-[16px] font-semibold">
+                        <a href="#" class="hover:text-[#7d3be2]">Hostinq<i class="fa-solid fa-chevron-down pl-2 text-[12px]"></i></a>
+                            <div id="hostinqBars" class="w-[250px] hidden z-[999] absolute bg-[white] border rounded p-6  ">
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://sayt.az/icons/hosting-icon.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Veb Hostinq</p>
+                                        <p class="text-[13px] font-bold text-[#999]"><i class="fa-solid fa-manat-sign text-[14px] mr-1"></i>10.00/ay-dan başlayaraq</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://sayt.az/icons/vps-icon.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">VPS</p>
+                                        <p class="text-[13px] font-bold text-[#999]"><i class="fa-solid fa-manat-sign text-[14px] mr-1"></i>15.00/ay-dan başlayaraq</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://sayt.az/icons/server-icon.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Server</p>
+                                        <p class="text-[13px] font-bold text-[#999]"><i class="fa-solid fa-manat-sign text-[14px] mr-1"></i>99.00/ay-dan başlayaraq</p>
+                                    </a>
+                                </div>
+                            </div>
+                    </p>
+                    <p onclick="xidmetlerAch()"  class=" mb-4 text-[16px] font-semibold">
+                        <a href="#" class="hover:text-[#7d3be2]">Xidmətlər<i class="fa-solid fa-chevron-down pl-2 text-[12px]"></i></a>
+                            <div id="xidmetBars"  class="w-[250px] hidden z-[999] absolute bg-[white] h-[300px] overflow-x-auto  border rounded p-6 ">
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/lJ9i3mHSrGbIyOFk6VnqpcyzeZgiKmjyiUfdEhAc.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Sifarişi izlə</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Sifarişlərinizi izləyin</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/fcdQoEskESpjwrkLUcNKqvm0ZFwzn7kAspkBfwI5.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Sayt Kalkulyatoru</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Saytın Qiymətini Öyrən</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/vQyageZW9Eb4rKazAWwrY3xUTem15TN9Ofdk8oUk.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">SEO Xidməti</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Axtarış Sistemi Optimizasiyası</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/otN2FW4K7vPTfJRqYOqYJMRj1VZDil02yYCmA0mx.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Mobil Tətbiqlərin Hazırlanması</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Mobil tətbiq xidməti</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/zJjPDvohOxpgJj7wenVSBaGbTgNOuigFvjxLmhw5.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Sosial Media Marketinq</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Sosial Media Marketinq</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/qKRz4fKbiAGalPgCtcAGVuV5AnCAhx8WkRAMdV3L.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Texniki Xidmət</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Texniki Xidmət</p>
+                                    </a>
+                                </div>
+                            </div>
+                    </p>
+                    <p onclick="servisAch()" class=" mb-10 text-[16px] font-semibold">
+                        <a href="#" class="hover:text-[#7d3be2]">Şirkət<i class="fa-solid fa-chevron-down pl-2 text-[12px]"></i></a>
+                            <div id="sirketBars" class="w-[250px] hidden z-[999] absolute  bg-[white] h-[50vh] overflow-x-auto border rounded p-6 ">
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/lJ9i3mHSrGbIyOFk6VnqpcyzeZgiKmjyiUfdEhAc.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Haqqımızda</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Bizim komanda üzvlərimiz</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/fcdQoEskESpjwrkLUcNKqvm0ZFwzn7kAspkBfwI5.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Bloq</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Ən son xəbərlər və faydalı məlumatlar</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/vQyageZW9Eb4rKazAWwrY3xUTem15TN9Ofdk8oUk.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Bütün StartUplar</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Startupları idarə edən komandamıza qoşulun</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/otN2FW4K7vPTfJRqYOqYJMRj1VZDil02yYCmA0mx.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Portfolio</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Hazırladığımız hər bir iş bizim üçün dəyərlidir</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/zJjPDvohOxpgJj7wenVSBaGbTgNOuigFvjxLmhw5.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Karyera</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Hazırki vakansiyalarımız</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/RG2ZavDFVNsih7XSr36x2pxKPQxXekuAgO2VXif6.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Freelance</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Siz də qeydiyyatdan keçməklə freelance işləyə bilərsiz</p>
+                                    </a>
+                                </div>
+                                <div class=" flex items-center mb-5">
+                                    <img class="w-[50px] rounded mr-4 bg-[#dbeafe] p-3" src="https://api.websiteca.com/storage/khwNG7uXgAPtW9wilTtK12LaUADpZgeQb3UvOqvB.svg" />
+                                    <a href="#">
+                                        <p class="text-[16px]">Əlaqə Forması</p>
+                                        <p class="text-[13px] font-bold text-[#999]">Əlaqə Saxlayın</p>
+                                    </a>
+                                </div>
+                            </div>
+                    </p>
+                </div>
+                 
+                <div id="icons" class="flex items-center ml-9 my-4 relative ">
+                    <a  onclick="manatAch()" href="#" >
+                        <i class="fa-solid fa-manat-sign text-[17px]"></i><i class="fa-solid fa-chevron-down pl-2  text-[#ccc]"></i>
+                        <ul id="manatBars" class=" hidden bg-[white] absolute top-[40px] border rounded p-2 z-40">
+                            <li><i class="fa-solid fa-manat-sign"></i></li>
+                            <li>$</li>
+                        </ul>
+                    </a>
+                    <a onclick="bayragAch()" href="#" class=" flex items-center pl-4 ">
+                        <img class="w-[20px]" src="https://sayt.az/images/az.png" alt="flag" />
+                        <i class="fa-solid fa-chevron-down pl-2 text-[#ccc]"></i>
+                        <div id="bayragBarsDD" class="hidden bg-[white] absolute top-[40px] left-[50px] border rounded  p-2 z-90">
+                            <div><img class="w-[20px]" src="https://sayt.az/images/usa.png" /></div>
+                            <div><img class="w-[20px]" src="https://sayt.az/images/az.png" /></div>
+                        </div> 
+                    </a>
+                </div>
+                    <div id="btns" class=" flex flex-col">
+                        <button class="w-[250px] mb-4 mx-auto  text-[#fff] py-2 px-4 font-semibold rounded">Qiymət təklifi al</button>
+                        <button class="w-[250px] mx-auto rounded text-[#a271f2] border border-[#a271f2] py-2 px-4 font-semibold ">Daxil olun</button>
+                    </div>
+                </div>
+            </div>
+            <div id="popbagla" class=" " >
+                <div  class="bgBlur"></div>
+            </div>
+        </main>
+
+
+        <footer class="bg-[#faf4ff] pt-16 pb-6 text-[#4a2182]">
+            <div class="flex  flex-wrap w-[85%] mx-auto">
+                <div>
+                    <img class="w-[150px]" src="https://sayt.az/icons/saytaz.svg" alt="logo" />
+                    <p class="w-[70%] py-10">Sayt.az - Web saytların hazırlanması, Domain, Hosting satışı, SEO, SMM və texniki xidmətlər təklif edir.</p>
+                    <div>
+                        <h5 class="font-bold pb-4">Bizi izləyin :</h5>
+                        <a href="#"><i class="fa-brands fa-facebook text-[40px] mr-6 text-[#a271f2]"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram text-[40px] mr-6 text-[#a271f2]"></i></a>
+                        <a href="#"><i class="fa-brands fa-whatsapp text-[40px] mr-6 text-[#a271f2]"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin-in text-[40px] mr-6 text-[#a271f2]"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube text-[40px] mr-6 text-[#a271f2]"></i></a>
+                    </div>
+                </div>
+                <div class="pr-16">
+                    <h3 class="text-[#300b60] font-bold text-[25px] pb-5 pt-3 ">Hostinq & Domen</h3>
+                    <div class="flex flex-col text-[#4a2182] font-medium text-[20px]">
+                        <a class="py-2 text-[16px]" href="#">Domen</a>
+                        <a class="py-2 text-[16px]" href="#">Veb Hostinq</a>
+                        <a class="py-2 text-[16px]" href="#">VPS Hostinq</a>
+                        <a class="py-2 text-[16px]" href="#">Server</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-[#300b60] font-bold text-[25px] pb-5 pt-3">Şirkət</h3>
+                    <div class="flex flex-col text-[#4a2182] font-medium text-[20px]">
+                        <a  class="py-2 text-[16px]" href="#">Haqqımızda</a>
+                        <a  class="py-2 text-[16px]" href="#">Əlaqə</a>
+                        <a  class="py-2 text-[16px]" href="#">Bloq</a>
+                        <a  class="py-2 text-[16px]" href="#">Portfolio</a>
+                    </div>
+                </div>
+            </div>
+            <hr class="text-[#e2e8f0] my-14" />
+            <div class=" w-[85%] mx-auto flex justify-between items-center flex-wrap">
+                <div>© Copyright 2004-2024 © Sayt.az .  Bütün Hüquqlar Qorunur.</div>
+                <div class="flex flex-wrap">
+                    <div class="pr-6"><i class="fa-solid fa-phone mr-2"></i>+(99470) 330-00-04</div>
+                    <div><i class="fa-regular fa-envelope mr-2"></i>support@sayt.az</div>
+                </div>
+            </div>
+        </footer>
+        <script src="header.js"></script>
+        <script src="calc.js"></script>
+        
+    </body>
+</html>
